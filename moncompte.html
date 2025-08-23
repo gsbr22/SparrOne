@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte - SparrOne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <header>
+        <div class="corner-logo">
+            <!-- NOUVEAU LOGO SPARRONE -->
+            <img src="SparrLogo1.png" alt="SparrOne Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#products">Nos Produits</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="account-page">
+        <section class="account-info">
+            <h1>Mon Compte</h1>
+            <div id="userDetails" class="user-details">
+                <div class="user-info">
+                    <div class="user-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="user-email" id="userEmail">
+                        Chargement des informations...
+                    </div>
+                </div>
+            </div>
+            <div class="account-actions">
+                <button id="logoutBtn" class="btn">Déconnexion</button>
+                <button id="deleteAccountBtn" class="btn-danger">Supprimer mon compte</button>
+            </div>
+        </section>
+
+        <section class="purchases">
+            <h2>Mes Achats</h2>
+            <div id="purchasesList" class="purchases-list">
+                <p>Vous n'avez pas encore effectué d'achat.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- NOUVEAU LOGO SPARRONE -->
+                <img src="SparrLogo1.png" alt="SparrOne Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#products">Produits</a>
+                <a href="index.html#about">À Propos</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="legal.html">Mentions légales & CGV</a>
+            </div>
+            <div class="footer-social">
+                <!-- Correction des icônes et ajout de target="_blank" -->
+                <a href="mailto:sparrone.business@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.tiktok.com/@nextgencorp" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/le_guide_du_footballeur/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SparrOne. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Gestion spécifique à la page de compte
+        document.addEventListener('DOMContentLoaded', function() {
+            const auth = firebase.auth();
+            const database = firebase.database();
+            const logoutBtn = document.getElementById('logoutBtn');
+            const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+            const userDetails = document.getElementById('userDetails');
+            const purchasesList = document.getElementById('purchasesList');
+            const userEmail = document.getElementById('userEmail');
+
+            // Vérifier si l'utilisateur est connecté
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    // Afficher l'email immédiatement
+                    userEmail.textContent = user.email;
+                    
+                    // Afficher les informations utilisateur complètes
+                    database.ref('users/' + user.uid).once('value').then((snapshot) => {
+                        const userData = snapshot.val();
+                        if (userData) {
+                            userDetails.innerHTML += `
+                                <p><i class="fas fa-user"></i> <strong>Nom :</strong> ${userData.name || 'Non renseigné'}</p>
+                                <p><i class="fas fa-calendar-alt"></i> <strong>Membre depuis :</strong> ${new Date(userData.createdAt).toLocaleDateString('fr-FR')}</p>
+                            `;
+                        }
+                    });
+
+                    // Charger les achats de l'utilisateur
+                    database.ref('purchases/' + user.uid).once('value').then((snapshot) => {
+                        const purchases = snapshot.val();
+                        if (purchases) {
+                            let html = '<div class="purchases-grid">';
+                            Object.entries(purchases).forEach(([key, purchase]) => {
+                                html += `
+                                    <div class="purchase-item">
+                                        <h3>${purchase.productName}</h3>
+                                        <p>Prix: ${purchase.price}€</p>
+                                        <p>Date: ${new Date(purchase.date).toLocaleDateString('fr-FR')}</p>
+                                        <a href="${purchase.downloadLink}" class="btn" target="_blank">Télécharger</a>
+                                    </div>
+                                `;
+                            });
+                            html += '</div>';
+                            purchasesList.innerHTML = html;
+                        } else {
+                            purchasesList.innerHTML = '<p>Vous n\'avez pas encore effectué d\'achat.</p>';
+                        }
+                    }).catch((error) => {
+                        console.error('Erreur lors du chargement des achats:', error);
+                        purchasesList.innerHTML = '<p>Erreur lors du chargement de vos achats.</p>';
+                    });
+                } else {
+                    // Rediriger vers la page d'accueil si non connecté
+                    window.location.href = 'index.html';
+                }
+            });
+
+            // Gestion de la déconnexion
+            logoutBtn.addEventListener('click', function() {
+                auth.signOut().then(() => {
+                    window.location.href = 'index.html';
+                }).catch((error) => {
+                    console.error('Erreur lors de la déconnexion:', error);
+                    alert('Une erreur est survenue lors de la déconnexion.');
+                });
+            });
+
+            // Gestion de la suppression de compte
+            deleteAccountBtn.addEventListener('click', function() {
+                if (confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')) {
+                    const user = auth.currentUser;
+                    if (user) {
+                        user.delete().then(() => {
+                            // Supprimer également les données utilisateur de la base de données
+                            database.ref('users/' + user.uid).remove()
+                                .then(() => {
+                                    window.location.href = 'index.html';
+                                })
+                                .catch((error) => {
+                                    console.error('Erreur lors de la suppression des données:', error);
+                                    window.location.href = 'index.html';
+                                });
+                        }).catch((error) => {
+                            console.error('Erreur lors de la suppression du compte:', error);
+                            alert('Une erreur est survenue lors de la suppression du compte. Veuillez vous reconnecter avant de réessayer.');
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
