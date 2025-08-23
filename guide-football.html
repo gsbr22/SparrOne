@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Complet du Footballeur | SparrOne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Intégration du SDK PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AT7mrGLSKQIwJZouOtZEWw4UC_ep6xhaEVQsxJLtVzom9-hlTszRFeigtsoNnb-5LXDqxPKehA7iwqem&currency=EUR"></script>
+</head>
+<body>
+    <header>
+        <div class="corner-logo">
+            <!-- NOUVEAU LOGO SPARRONE -->
+            <img src="SparrLogo1.png" alt="SparrOne Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#products">Nos Produits</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" id="loginLink" class="login-btn">Connexion</a>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <section class="product-detail">
+            <div class="product-image">
+                <img src="guide_footballeur.png" alt="Guide du Footballeur">
+            </div>
+            <div class="product-info">
+                <h1>Guide Complet du Footballeur</h1>
+                <p class="price">16,99€</p>
+                <div class="product-description">
+                    <p>Ce guide couvre tous les aspects du football moderne, des techniques de base aux stratégies avancées utilisées par les professionnels.</p>
+                    <h3>Ce que vous apprendrez :</h3>
+                    <ul>
+                        <li>Techniques fondamentales (contrôle, passe, tir)</li>
+                        <li>Stratégies de jeu individuelles et collectives</li>
+                        <li>Préparation physique spécifique au football</li>
+                        <li>Nutrition pour performances optimales</li>
+                        <li>Mental gagnant et gestion du stress</li>
+                    </ul>
+                </div>
+                <!-- ANCIEN FORMULAIRE PAYPAL SUPPRIME -->
+                <!-- NOUVEAU BOUTON PAYPAL INTELLIGENT -->
+                <div id="paypal-button-container"></div>
+            </div>
+        </section>
+
+        <section class="product-features">
+            <h2>Caractéristiques du Produit</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Format</h3>
+                    <p>eBook PDF (compatible tous appareils)</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Pages</h3>
+                    <p>24 pages</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-globe"></i>
+                    <h3>Langue</h3>
+                    <p>Français</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-download"></i>
+                    <h3>Téléchargement</h3>
+                    <p>Immédiat après paiement</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- NOUVEAU LOGO SPARRONE -->
+                <img src="SparrLogo1.png" alt="SparrOne Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#products">Produits</a>
+                <a href="index.html#about">À Propos</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="legal.html">Mentions légales & CGV</a>
+            </div>
+            <div class="footer-social">
+                <!-- Correction des icônes Font Awesome -->
+                <a href="https://www.youtube.com/@Nextgencorp_lgdf" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@nextgencorp" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/le_guide_du_footballeur/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SparrOne. Tous droits réservés.</p> <!-- NOM MODIFIE -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Configuration et affichage du bouton PayPal -->
+    <script>
+        paypal.Buttons({
+            // STYLE: Personnalise l'apparence du bouton
+            style: {
+                color: 'gold',   // Couleur : 'gold', 'blue', 'silver', 'black'
+                shape: 'rect',   // Forme : 'rect' (rectangle), 'pill' (ovale)
+                label: 'pay',    // Label : 'pay', 'checkout', 'buynow'
+                height: 45       // Hauteur en pixels
+            },
+
+            // ÉTAPE 1 : Création de la commande
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Guide Complet du Footballeur - eBook PDF', // Description du produit
+                        amount: {
+                            currency_code: 'EUR', // Devise
+                            value: '16.99' // Prix EXACT. DOIT être une string.
+                        }
+                    }]
+                });
+            },
+
+            // ÉTAPE 2 : Capture du paiement après approbation
+            onApprove: function(data, actions) {
+                // Capture la transaction
+                return actions.order.capture().then(function(details) {
+                    // Cette fonction est exécutée quand le paiement est validé
+
+                    // Affiche un message de succès
+                    alert('Paiement réussi ! Merci ' + details.payer.name.given_name + ' ! Votre guide est en cours de téléchargement.');
+
+                    // REDIRECTION vers la page de remerciement/téléchargement
+                    // REMPLACEZ par l'URL réelle de votre page merci.html
+                    window.location.href = 'https://gsbr22.github.io/SparrOne/merci.html';
+                });
+            },
+
+            // Gestion des erreurs
+            onError: function (err) {
+                console.error('Erreur PayPal:', err);
+                alert("Une erreur s'est produite lors du paiement. Veuillez réessayer.");
+            }
+
+        }).render('#paypal-button-container'); // Affiche le bouton dans la div
+    </script>
+</body>
+</html>
