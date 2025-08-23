@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande Confirmée | SparrOne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        .confirmation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-message {
+            font-size: 1.2rem;
+            color: #495057;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .next-steps {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        
+        .next-steps ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .next-steps li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .next-steps li i {
+            color: #28a745;
+            margin-right: 0.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .btn-container {
+            margin: 2rem 0;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+            color: white;
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: #6c757d;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .confirmation-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                display: block;
+                margin: 0.5rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="corner-logo">
+            <img src="SparrLogo1.png" alt="SparrOne Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#products">Nos Produits</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" id="loginLink" class="login-btn">Connexion</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="confirmation-container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h1>Commande Confirmée !</h1>
+            
+            <p class="confirmation-message">
+                Merci pour votre confiance ! Votre paiement a été validé avec succès.<br>
+                Votre histoire personnalisée est maintenant en cours de création.
+            </p>
+
+            <div class="next-steps">
+                <h3>⏱️ Ce qui va se passer maintenant :</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <div>
+                            <strong>Notre équipe a reçu votre commande</strong><br>
+                            Nous avons accès à toutes les informations de personnalisation que vous avez fournies.
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-pen-fancy"></i>
+                        <div>
+                            <strong>Création de votre histoire unique</strong><br>
+                            Nos auteurs commencent à rédiger votre histoire sur-mesure.
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Livraison par email</strong><br>
+                            Vous recevrez votre histoire personnalisée au format PDF dans un délai maximum de <strong>48 heures</strong> à l'adresse email associée à votre compte PayPal.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="btn-container">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </a>
+                <a href="index.html#products" class="btn-secondary">
+                    <i class="fas fa-shopping-bag"></i> Découvrir nos autres produits
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <h3>❓ Besoin d'aide ?</h3>
+                <p>Si vous avez des questions concernant votre commande, n'hésitez pas à nous contacter :</p>
+                <p>
+                    <strong>Email :</strong> 
+                    <a href="mailto:nextgencorp125@gmail.com">sparrone.business@gmail.com</a>
+                </p>
+                <p>Nous vous répondrons dans les plus brefs délais.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="SparrLogo1.png" alt="SparrOne Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#products">Produits</a>
+                <a href="index.html#about">À Propos</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="legal.html">Mentions légales & CGV</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@Nextgencorp_lgdf" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@nextgencorp" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/le_guide_du_footballeur/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SparrOne. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
