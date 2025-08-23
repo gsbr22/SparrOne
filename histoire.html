@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histoires Personnalisées pour Enfants | SparrOne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Intégration du SDK PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AT7mrGLSKQIwJZouOtZEWw4UC_ep6xhaEVQsxJLtVzom9-hlTszRFeigtsoNnb-5LXDqxPKehA7iwqem&currency=EUR"></script>
+    <style>
+        .questionnaire-container {
+            margin: 2rem auto;
+            max-width: 800px;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 600px;
+            overflow: hidden;
+        }
+        .questionnaire-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform: scale(0.85);
+            transform-origin: top left;
+        }
+        .purchase-section {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 0 1rem;
+        }
+        .form-disclaimer {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 1rem auto;
+            max-width: 600px;
+        }
+        #paypal-button-container-histoire {
+            margin: 1.5rem auto;
+            max-width: 300px;
+        }
+        @media (max-width: 768px) {
+            .questionnaire-container {
+                height: 500px;
+                padding: 0.5rem;
+            }
+            .questionnaire-iframe {
+                transform: scale(0.78);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="corner-logo">
+            <!-- NOUVEAU LOGO SPARRONE -->
+            <img src="SparrLogo1.png" alt="SparrOne Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#products">Nos Produits</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" id="loginLink" class="login-btn">Connexion</a>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <section class="product-detail">
+            <div class="product-image">
+                <img src="histoires_enfants.png" alt="Histoires Personnalisées pour Enfants">
+            </div>
+            <div class="product-info">
+                <h1>Histoire Personnalisée pour Votre Enfant</h1>
+                <p class="price">14,99€</p>
+                <div class="product-description">
+                    <p>Offrez à votre enfant une aventure unique où il devient le héros de l'histoire !</p>
+                    <h3>Inclus dans votre commande :</h3>
+                    <ul>
+                        <li>Histoire de 15-20 pages personnalisée</li>
+                        <li>Histoire sans illustration incluses</li>
+                        <li>Format PDF haute qualité</li>
+                        <li>Livraison sous 48h</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="questionnaire-section">
+            <h2>Personnalisez Votre Histoire</h2>
+            <p class="form-disclaimer">Remplissez ce formulaire (5-7 minutes) pour créer une histoire unique</p>
+            
+            <div class="questionnaire-container">
+                <iframe class="questionnaire-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdXD4T4fTbzdsoRA3s5i3R2PrPih-3NKRz04ui39qyNBTwiTQ/viewform?embedded=true&usp=pp_url&entry.1234567890=preview" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+            </div>
+
+            <div class="purchase-section">
+                <h3>Finalisez Votre Commande</h3>
+                
+                <!-- NOUVEAU BOUTON PAYPAL INTELLIGENT -->
+                <div id="paypal-button-container-histoire"></div>
+                
+                <p class="form-disclaimer">Vous recevrez votre histoire par email sous 48h après validation du paiement</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- NOUVEAU LOGO SPARRONE -->
+                <img src="SparrLogo1.png" alt="SparrOne Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#products">Produits</a>
+                <a href="index.html#about">À Propos</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="legal.html">Mentions légales & CGV</a>
+            </div>
+            <div class="footer-social">
+                <!-- Liens sociaux avec ouverture dans nouvel onglet -->
+                <a href="https://www.youtube.com/@Nextgencorp_lgdf" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@nextgencorp" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/le_guide_du_footballeur/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SparrOne. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Configuration et affichage du bouton PayPal -->
+    <script>
+        paypal.Buttons({
+            // STYLE: Personnalise l'apparence du bouton
+            style: {
+                color: 'gold',   // Couleur : 'gold', 'blue', 'silver', 'black'
+                shape: 'rect',   // Forme : 'rect' (rectangle), 'pill' (ovale)
+                label: 'pay',    // Label : 'pay', 'checkout', 'buynow'
+                height: 45       // Hauteur en pixels
+            },
+
+            // ÉTAPE 1 : Création de la commande
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Histoire Personnalisée pour Enfant - Livraison par email', // Description du produit
+                        amount: {
+                            currency_code: 'EUR', // Devise
+                            value: '14.99' // Prix EXACT. DOIT être une string.
+                        }
+                    }]
+                });
+            },
+
+            // ÉTAPE 2 : Capture du paiement après approbation
+            onApprove: function(data, actions) {
+                // Capture la transaction
+                return actions.order.capture().then(function(details) {
+                    // Cette fonction est exécutée quand le paiement est validé
+
+                    // Affiche un message de succès
+                    alert('Paiement réussi ! Merci ' + details.payer.name.given_name + ' ! Votre histoire personnalisée vous sera envoyée par email sous 48h.');
+
+                    // REDIRECTION vers une page de confirmation
+                    // REMPLACEZ par l'URL réelle de votre page de confirmation
+                    window.location.href = 'https://gsbr22.github.io/SparrOne/confirmation-envoi.html';
+                });
+            },
+
+            // Gestion des erreurs
+            onError: function (err) {
+                console.error('Erreur PayPal:', err);
+                alert("Une erreur s'est produite lors du paiement. Veuillez réessayer.");
+            }
+
+        }).render('#paypal-button-container-histoire'); // Affiche le bouton dans la div
+    </script>
+</body>
+</html>
