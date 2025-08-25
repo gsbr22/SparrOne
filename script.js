@@ -11,7 +11,7 @@ const firebaseConfig = {
 // Initialiser Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-const db = firebase.firestore(); // Cloud Firestore au lieu de Realtime Database
+const database = firebase.database();
 
 // Initialiser EmailJS
 emailjs.init('LDYR_83BF5t-wB9h2');
@@ -277,7 +277,6 @@ function checkAuth() {
         });
     });
 }
-
 // Export des fonctions pour une utilisation globale (si nécessaire)
 window.firebaseAuth = auth;
 window.firebaseDB = db;
