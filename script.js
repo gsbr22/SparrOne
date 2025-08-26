@@ -1,7 +1,11 @@
 // Initialisation Firebase avec Cloud Firestore
-const firebaseConfig = 
+const firebaseConfig = {
+    apiKey: "AIzaSyBzMi3F5vLM0bYxTY1KuBJf7eD6Nx96wsQ", 
     authDomain: "login-ec53a.firebaseapp.com",
     projectId: "login-ec53a",
+    storageBucket: "login-ec53a.appspot.com",
+    messagingSenderId: "123644267529",
+    appId: "1:123644267529:web:5409efdf896971c655bcd8"
     storageBucket: "login-ec53a.appspot.com"
 };
 
