@@ -5,7 +5,7 @@ const firebaseConfig = {
     projectId: "login-ec53a",
     storageBucket: "login-ec53a.appspot.com",
     messagingSenderId: "123644267529",
-    appId: "1:123644267529:web:5409efdf896971c655bcd8"
+    appId: "1:123644267529:web:5409efdf896971c655bcd8" ,
     storageBucket: "login-ec53a.appspot.com"
 };
 
