@@ -13,9 +13,6 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-// Initialiser EmailJS
-emailjs.init('LDYR_83BF5t-wB9h2');
-
 // Fonction de notification
 function showNotification(message, isSuccess = true) {
     // Créer le style CSS pour les notifications si il n'existe pas
