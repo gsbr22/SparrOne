@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme Complet Jeunes Footballeurs | SparrOne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Intégration du SDK PayPal -->
+    <script src="*METTRE CLIENT ID*"></script>
+</head>
+<body>
+    <header>
+        <div class="corner-logo">
+            <img src="SparrLogo1.png" alt="SparrOne Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#products">Nos Produits</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="index.html#" id="loginLink" class="login-btn">Connexion</a>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <section class="product-detail">
+            <div class="product-image">
+                <img src="pack.png" alt="Programme Jeunes Footballeurs">
+            </div>
+            <div class="product-info">
+                <h1>Programme Complet Jeunes Footballeurs</h1>
+                <p class="price">9,99€</p>
+                <div class="product-description">
+                    <p>Un programme d'entraînement holistique et scientifique spécialement conçu pour le développement optimal des jeunes footballeurs.</p>
+                    
+                    <h3>Contenu du Programme :</h3>
+                    <ul>
+                        <li><strong>Nutrition.pdf</strong> - Guide complet d'alimentation sportive</li>
+                        <li><strong>Ebook Cardio.pdf</strong> - Programme d'endurance spécifique football</li>
+                        <li><strong>Le Guide du footballeur.pdf</strong> - Manuel nutrition/musculation/précision</li>
+                        <li><strong>Exemple-d'exos.pdf</strong> - Bibliothèque d'exercices détaillés</li>
+                        <li><strong>Fiche_Tests_Football.pdf</strong> - Grilles d'évaluation physique et technique</li>
+                        <li><strong>Programme_Muscu.pdf</strong> - Renforcement musculaire adapté</li>
+                        <li><strong>Ebook_Ton Poste_ton_Jeu.pdf</strong> - Spécialisation par poste</li>
+                        <li><strong>Programme_Technique.pdf</strong> - Perfectionnement technique progressif</li>
+                    </ul>
+
+                    <h3>Ce que le programme offre :</h3>
+                    <ul>
+                        <li>✅ Développement technique progressif (débutant à confirmé)</li>
+                        <li>✅ Préparation physique scientifique adaptée aux jeunes</li>
+                        <li>✅ Nutrition optimisée pour la performance et la croissance</li>
+                        <li>✅ Spécialisation par poste avec exemples de joueurs pros</li>
+                        <li>✅ Tests d'évaluation et suivi des progrès</li>
+                        <li>✅ Programmes sur 8 semaines avec progressivité</li>
+                        <li>✅ Exercices réalisables à domicile avec matériel minimal</li>
+                    </ul>
+                </div>
+                
+                <div id="paypal-button-container"></div>
+            </div>
+        </section>
+
+        <section class="product-features">
+            <h2>Caractéristiques du Programme</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Niveaux</h3>
+                    <p>Débutant à Confirmé (adaptable selon l'âge)</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Durée</h3>
+                    <p>Programmes sur 8 semaines minimum</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Format</h3>
+                    <p>8 eBooks PDF haute qualité</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Résultats</h3>
+                    <p>Progrès mesurables avec tests inclus</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-home"></i>
+                    <h3>Lieu</h3>
+                    <p>Exercices réalisables à domicile</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Matériel</h3>
+                    <p>Minimal (élastiques, haltères basiques)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="program-structure">
+            <h2>Structure du Programme</h2>
+            <div class="structure-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <h3>Évaluation Initiale</h3>
+                    <p>Tests physiques et techniques pour établir le niveau de départ</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <h3>Nutrition & Hydratation</h3>
+                    <p>Bases scientifiques adaptées aux jeunes sportifs</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <h3>Préparation Physique</h3>
+                    <p>Cardio, musculation et explosivité spécifiques football</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <h3>Technique Individuelle</h3>
+                    <p>Contrôle, passe, dribble, tir avec progressivité</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <h3>Spécialisation Poste</h3>
+                    <p>Développement selon le poste de jeu choisi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <h3>Évaluation Finale</h3>
+                    <p>Mesure des progrès et ajustements</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="SparrLogo1.png" alt="SparrOne Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#products">Produits</a>
+                <a href="index.html#about">À Propos</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="legal.html">Mentions légales & CGV</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@Nextgencorp_lgdf" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@sparrone.ft" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/sparronecrp/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SparrOne. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Configuration et affichage du bouton PayPal -->
+    <script>
+        paypal.Buttons({
+            style: {
+                color: 'gold',
+                shape: 'rect',
+                label: 'pay',
+                height: 45
+            },
+
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Programme Complet Jeunes Footballeurs - 8 eBooks PDF',
+                        amount: {
+                            currency_code: 'EUR',
+                            value: '9.99'
+                        }
+                    }]
+                });
+            },
+
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Paiement réussi ! Merci ' + details.payer.name.given_name + ' ! Votre programme complet est en cours de téléchargement.');
+                    window.location.href = 'https://gsbr22.github.io/SparrOne/merci-pack.html';
+                });
+            },
+
+            onError: function (err) {
+                console.error('Erreur PayPal:', err);
+                alert("Une erreur s'est produite lors du paiement. Veuillez réessayer.");
+            }
+
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
