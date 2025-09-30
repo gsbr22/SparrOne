@@ -258,6 +258,43 @@ h2::after {
     color: var(--primary-color);
     margin: 1.5rem 0;
 }
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 1.5rem 0;
+}
+
+/* Nouveaux styles pour les prix barrés et promotion */
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 1.5rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.new-price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.promo-badge {
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
 
 /* Buttons */
 .btn {
